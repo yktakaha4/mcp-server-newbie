@@ -1,0 +1,9 @@
+{
+    "servers": {
+        "example": {
+            "command": "${workspaceFolder}/bin/run-mcp",
+            "args": [],
+            "env": {}
+        }
+    }
+}

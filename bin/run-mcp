@@ -1,0 +1,16 @@
+#!/bin/env bash
+
+set -euo pipefail
+
+node_base_path=~/.nodenv/shims/
+base_dir=$(cd "$(dirname "$0")/.." && pwd)
+cd "$base_dir"
+
+$node_base_path/npm run build 1>&2
+
+name=${1:-example}
+args=("${@:2}")
+
+echo "Running $name with args: ${args[*]}" 1>&2
+
+$node_base_path/node "dist/$name.js" "${args[@]}"
